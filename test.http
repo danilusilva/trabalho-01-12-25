@@ -1,0 +1,68 @@
+### Teste 1: Transferência válida (Caminho Feliz)
+POST http://localhost:3000/transfer
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "receiverId": 2,
+  "amount": 100
+}
+
+###
+
+### Teste 2: Saldo insuficiente
+POST http://localhost:3000/transfer
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "receiverId": 2,
+  "amount": 5000
+}
+
+###
+
+### Teste 3: Valor negativo (inválido)
+POST http://localhost:3000/transfer
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "receiverId": 2,
+  "amount": -50
+}
+
+###
+
+### Teste 4: Valor zero (inválido)
+POST http://localhost:3000/transfer
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "receiverId": 2,
+  "amount": 0
+}
+
+###
+
+### Teste 5: Dados incompletos (falta receiverId)
+POST http://localhost:3000/transfer
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "amount": 100
+}
+
+###
+
+### Teste 6: Usuário não encontrado
+POST http://localhost:3000/transfer
+Content-Type: application/json
+
+{
+  "senderId": 99,
+  "receiverId": 2,
+  "amount": 100
+}
